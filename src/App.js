@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import CitiesListContainer from './components/CitiesListComponent/CitiesListComponent';
+import MapComponent from './components/MapComponent/MapComponent';
+import GraphComponent from './components/GraphComponent/GraphComponent';
 
 function App() {
+
+  const [selectedCity, setSelectedCity] = useState();
+  const [selectedLocation, setSelectedLocation] = useState();
+ 
+  const handleCitySelection = (city) => {
+    setSelectedCity(city);
+  }
+
+  const handleLocationSelection = (location) => {
+    setSelectedLocation(location);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CitiesListContainer onSelectCity={(city) => handleCitySelection(city)}/>
+       <MapComponent city={selectedCity} country={'DE'} onLocationSelect={(location) => handleLocationSelection(location)}/> 
+      {selectedLocation && <GraphComponent locationInfo={selectedLocation}/>}
     </div>
   );
 }
