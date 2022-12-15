@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { BASE_URL } from "../config/constants"
 
 export const getCitiesListEndpoint = () => {
@@ -6,4 +7,8 @@ export const getCitiesListEndpoint = () => {
 
 export const getCityInfoEndpoint = (country, city) => {
     return `${BASE_URL}latest?limit=100&page=1&offset=0&sort=desc&radius=1000&country_id=${country}&city=${city}&order_by=lastUpdated&dumpRaw=false`;
+}
+
+export const formatDate = (dateString) => {
+   return moment(dateString).format('YYYY-MM-DD');
 }

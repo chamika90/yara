@@ -3,7 +3,9 @@ import Plot from 'react-plotly.js';
 import useFetch from "../../hooks/useFetch";
 import { getCityInfoEndpoint } from '../../helpers/utils';
 import { MAP_DATA } from '../../config/constants';
-import  "./mapComponent.css";
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import ErrorComponent from '../ErrorComponent/ErrorComponent';
+import  "./mapComponent.scss";
 
 const MapComponent = ({city, country, onLocationSelect}) => {
     const {data, isLoading, error, fetchData} = useFetch();
@@ -20,7 +22,7 @@ const MapComponent = ({city, country, onLocationSelect}) => {
             fetchData(getCityInfoEndpoint(country, city.city));
         }
         
-    },[city,country]);
+    },[city, country]);
 
     useEffect(() => {
         if(data) {
@@ -45,7 +47,7 @@ const MapComponent = ({city, country, onLocationSelect}) => {
             lat: [],
             marker: {
                 size: 10,
-                color: "#2877b8",
+                color: '#2591EB',
             },
             name: city.city,
         }]
@@ -83,23 +85,21 @@ const MapComponent = ({city, country, onLocationSelect}) => {
 				dragmode: "zoom",
                 geo: {
                     scope: 'europe',
-                    projection: {scale: city ? 45 : 4},
+                    projection: {scale: city ? 20 : 4},
                     center: centerLocation,
-                    showrivers: true,
-                    rivercolor: '#fff',
-                    showlakes: true,
-                    lakecolor: '#fff',
                     showland: true,
-                    landcolor: '#EAEAAE',
-                    countrycolor: '#d3d3d3',
-                    subunitcolor: '#d3d3d3'
+                    landcolor: '#7B2EEC5',
+                    countrycolor: '#dB2EEC5',
+                    bgcolor: '#B2D3EE',
                 },
                 showlegend: false,
 				margin: { r: 0, t: 0, b: 0, l: 0 },
 				newselection: "immediate",
 			}}
-			onClick={(event) => { handleLocationSelection(event.points[0].text)} }
+			onClick={(event) => { handleLocationSelection(event.points[0].text)}}
 		/>
+        {isLoading && <div className='loader-container'><LoadingSpinner /></div>}
+        {error && <ErrorComponent message={'Something went wrong. Please try again later'} />}
         </div>
       );
 }

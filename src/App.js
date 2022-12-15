@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { useState } from 'react';
 import CitiesListContainer from './components/CitiesListComponent/CitiesListComponent';
 import MapComponent from './components/MapComponent/MapComponent';
@@ -19,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <CitiesListContainer onSelectCity={(city) => handleCitySelection(city)}/>
        <MapComponent city={selectedCity} country={'DE'} onLocationSelect={(location) => handleLocationSelection(location)}/> 
       {selectedLocation && <GraphComponent locationInfo={selectedLocation}/>}

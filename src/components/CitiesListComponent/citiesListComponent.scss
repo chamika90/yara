@@ -1,0 +1,39 @@
+@import '../../resources/colors.scss';
+
+.cities-container {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.cities {
+  width: 100%;
+  background-color: $gray3;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20;
+  justify-content: center;
+}
+
+.city {
+  padding: 10px 10px;
+  border-color: $black;
+  border-width: 1;
+  border-style: solid;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.city-selected {
+  background-color: $blue2;
+  color: $white;
+}
+
+.loader-container {
+  display: flex;
+  width: 50%;
+  height: 50%; 
+  justify-content: center;
+  align-items: center;
+  position:absolute
+}
