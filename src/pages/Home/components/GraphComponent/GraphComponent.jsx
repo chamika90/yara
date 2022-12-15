@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Plot from 'react-plotly.js';
-import { formatDate } from "../../helpers/utils";
+import { formatDate } from "../../../../helpers/utils";
 import "./graphComponent.scss";
 
 const GraphComponent = ({locationInfo}) => {
@@ -32,11 +32,7 @@ const GraphComponent = ({locationInfo}) => {
 
     
     return  <div className="container">
-                <div>
-                    {` ${locationInfo.city} / ${
-                                locationInfo.location
-                            } enviroment mesurements data collected on ${lastUpdatedDate}`}
-                </div>
+                
                 {locationInfo &&  <Plot
                     className="graph"
                     data={[
@@ -47,6 +43,10 @@ const GraphComponent = ({locationInfo}) => {
                             text: unitList,
                         },
                     ]}
+                    layout={{width: 1000,
+                    title: ` ${locationInfo.city} / ${
+                        locationInfo.location
+                    } enviroment mesurements data collected on ${lastUpdatedDate}`}}
                 />}
             </div>
 }

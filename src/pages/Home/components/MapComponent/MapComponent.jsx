@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Plot from 'react-plotly.js';
-import useFetch from "../../hooks/useFetch";
-import { getCityInfoEndpoint } from '../../helpers/utils';
-import { MAP_DATA } from '../../config/constants';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-import ErrorComponent from '../ErrorComponent/ErrorComponent';
+import useFetch from "../../../../hooks/useFetch";
+import { getCityInfoEndpoint } from '../../../../helpers/utils';
+import { MAP_DATA } from '../../../../config/constants';
+import LoadingSpinner from '../../../../components/LoadingSpinner/LoadingSpinner';
+import ErrorComponent from '../../../../components/ErrorComponent/ErrorComponent';
 import  "./mapComponent.scss";
 
 const MapComponent = ({city, country, onLocationSelect}) => {
@@ -83,14 +83,17 @@ const MapComponent = ({city, country, onLocationSelect}) => {
 			layout={{
 				clickmode: "event+select",
 				dragmode: "zoom",
+                width:1000,
+                height:600,
                 geo: {
                     scope: 'europe',
                     projection: {scale: city ? 20 : 4},
                     center: centerLocation,
                     showland: true,
-                    landcolor: '#7B2EEC5',
+                    landcolor: '#B2EEC5',
                     countrycolor: '#dB2EEC5',
                     bgcolor: '#B2D3EE',
+                    framecolor:'#000000',
                 },
                 showlegend: false,
 				margin: { r: 0, t: 0, b: 0, l: 0 },

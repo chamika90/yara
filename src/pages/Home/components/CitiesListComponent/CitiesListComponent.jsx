@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import useFetch from "../../hooks/useFetch";
-import {getCitiesListEndpoint} from '../../helpers/utils';
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import ErrorComponent from "../ErrorComponent/ErrorComponent";
+import useFetch from "../../../../hooks/useFetch";
+import {getCitiesListEndpoint} from '../../../../helpers/utils';
+import LoadingSpinner from "../../../../components/LoadingSpinner/LoadingSpinner";
+import ErrorComponent from "../../../../components/ErrorComponent/ErrorComponent";
 import './citiesListComponent.scss';
 
 const CitiesListContainer = ({onSelectCity}) => {

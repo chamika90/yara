@@ -10,5 +10,6 @@ export const getCityInfoEndpoint = (country, city) => {
 }
 
 export const formatDate = (dateString) => {
+    console.log('dateString --->',dateString);
    return moment(dateString).format('YYYY-MM-DD');
 }
