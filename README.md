@@ -1,4 +1,9 @@
-# Yara
+# Environmental Measurements Across Germany
+
+Users can select a city of German from the given list and can select a city and view the information based on the selected location.
+
+<img src="https://github.com/chamika90/Assets/blob/master/yara_1.png" width="300" />
+<img src="https://github.com/chamika90/Assets/blob/master/yara_2.png" width="300" />
 
 
 ## Setup
@@ -11,4 +16,10 @@ npm install
 
 ```
 npm start
+```
+
+## To run tests
+
+```
+npm run test
 ```
