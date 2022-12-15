@@ -6,4 +6,4 @@ describe('render error component', () => {
         const {toJSON}  = render(<ErrorComponent message={"Some thing went wrong."}/>);
         expect(toJSON).toMatchSnapshot();
     });
-  });
+});
